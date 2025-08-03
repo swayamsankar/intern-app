@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Position - YouthLink</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">YouthLink</a>
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="register.html" class="nav-link active">Apply Now</a></li>
+                <li><a href="admin.html" class="nav-link">Admin Dashboard</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="mobile-menu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="register.html" class="nav-link active">Apply Now</a>
+            <a href="admin.html" class="nav-link">Admin Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container-sm" style="padding-top: 3rem; padding-bottom: 3rem;">
+            <!-- Header -->
+            <div class="mb-8">
+                <a href="index.html" class="btn btn-ghost mb-4">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Home
+                </a>
+                <h1>Apply for Position</h1>
+                <p class="text-secondary mt-2">
+                    Fill out the form below to apply for an internship or volunteer position.
+                </p>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Application Form</h2>
+                    <p class="card-description">
+                        All fields marked with * are required. Please provide accurate information.
+                    </p>
+                </div>
+                <div class="card-content">
+                    <!-- Success Message -->
+                    <div id="success-message" class="hidden" style="background-color: #dcfce7; color: #166534; padding: 1rem; border-radius: var(--border-radius); margin-bottom: 1.5rem;">
+                        <i class="fas fa-check-circle"></i>
+                        Application submitted successfully!
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="error-message" class="hidden" style="background-color: #fef2f2; color: #dc2626; padding: 1rem; border-radius: var(--border-radius); margin-bottom: 1.5rem;">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span id="error-text">Please fill in all required fields.</span>
+                    </div>
+
+                    <form id="registration-form">
+                        <!-- Personal Information -->
+                        <div class="grid grid-cols-2" style="margin-bottom: 1.5rem;">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    class="form-input" 
+                                    placeholder="Enter your full name" 
+                                    required
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    class="form-input" 
+                                    placeholder="Enter your email address" 
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                class="form-input" 
+                                placeholder="Enter your phone number"
+                                required
+                            >
+                        </div>
+
+                        <!-- Position Type -->
+                        <div class="form-group">
+                            <label class="form-label">Position Type *</label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="intern" name="position_type" value="intern" class="radio-input" required>
+                                    <label for="intern">Internship</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="volunteer" name="position_type" value="volunteer" class="radio-input" required>
+                                    <label for="volunteer">Volunteer</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Department -->
+                        <div class="form-group">
+                            <label for="department" class="form-label">Department *</label>
+                            <select id="department" name="department" class="form-select" required>
+                                <option value="">Select a department</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="design">Design</option>
+                                <option value="data-science">Data Science</option>
+                                <option value="hr">Human Resources</option>
+                                <option value="finance">Finance</option>
+                                <option value="operations">Operations</option>
+                                <option value="community">Community Outreach</option>
+                                <option value="events">Events</option>
+                                <option value="education">Education</option>
+                                <option value="environment">Environment</option>
+                            </select>
+                        </div>
+
+                        <!-- Experience -->
+                        <div class="form-group">
+                            <label for="experience" class="form-label">Relevant Experience</label>
+                            <textarea 
+                                id="experience" 
+                                name="experience" 
+                                class="form-textarea" 
+                                placeholder="Describe your relevant experience, skills, or education"
+                                rows="4"
+                            ></textarea>
+                        </div>
+
+                        <!-- Motivation -->
+                        <div class="form-group">
+                            <label for="motivation" class="form-label">Why do you want to join us? *</label>
+                            <textarea 
+                                id="motivation" 
+                                name="motivation" 
+                                class="form-textarea" 
+                                placeholder="Tell us what motivates you to apply for this position"
+                                rows="4"
+                                required
+                            ></textarea>
+                        </div>
+
+                        <!-- Availability -->
+                        <div class="form-group">
+                            <label for="availability" class="form-label">Availability</label>
+                            <textarea 
+                                id="availability" 
+                                name="availability" 
+                                class="form-textarea" 
+                                placeholder="When are you available to start? Any schedule constraints?"
+                                rows="3"
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Application
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/registration.js"></script>
+</body>
+</html>

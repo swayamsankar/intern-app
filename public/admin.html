@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - YouthLink</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">YouthLink</a>
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="register.html" class="nav-link">Apply Now</a></li>
+                <li><a href="admin.html" class="nav-link active">Admin Dashboard</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="mobile-menu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="register.html" class="nav-link">Apply Now</a>
+            <a href="admin.html" class="nav-link active">Admin Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container" style="padding-top: 3rem; padding-bottom: 3rem;">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1>Admin Dashboard</h1>
+                <p class="text-secondary">
+                    Manage and review intern and volunteer applications.
+                </p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid" id="stats-grid">
+                <div class="card">
+                    <div class="card-header" style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 0.5rem;">
+                        <h3 class="card-title" style="margin: 0; font-size: 0.875rem;">Total Applications</h3>
+                        <i class="fas fa-users text-muted"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="stat-number" id="total-count">0</div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header" style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 0.5rem;">
+                        <h3 class="card-title" style="margin: 0; font-size: 0.875rem;">Intern Applications</h3>
+                        <i class="fas fa-briefcase text-muted"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="stat-number" id="intern-count">0</div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header" style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 0.5rem;">
+                        <h3 class="card-title" style="margin: 0; font-size: 0.875rem;">Volunteer Applications</h3>
+                        <i class="fas fa-users text-muted"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="stat-number" id="volunteer-count">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="card mb-8">
+                <div class="card-header">
+                    <h3 class="card-title">Filter Applications</h3>
+                </div>
+                <div class="card-content">
+                    <div class="filters">
+                        <div class="filter-input" style="position: relative;">
+                            <i class="fas fa-search" style="position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                            <input 
+                                type="text" 
+                                id="search-input" 
+                                class="form-input" 
+                                placeholder="Search by name, email, or department"
+                                style="padding-left: 2.5rem;"
+                            >
+                        </div>
+                        
+                        <select id="position-filter" class="form-select filter-select">
+                            <option value="all">All Positions</option>
+                            <option value="intern">Interns</option>
+                            <option value="volunteer">Volunteers</option>
+                        </select>
+                        
+                        <select id="department-filter" class="form-select filter-select">
+                            <option value="all">All Departments</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Applications Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Applications (<span id="filtered-count">0</span>)</h3>
+                    <p class="card-description" id="table-description">
+                        Click on any row to view detailed information.
+                    </p>
+                </div>
+                <div class="card-content">
+                    <div id="no-applications" class="text-center" style="padding: 2rem; color: var(--text-muted);">
+                        No applications submitted yet.
+                    </div>
+                    
+                    <div id="applications-container" class="hidden">
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Position</th>
+                                        <th>Department</th>
+                                        <th>Submitted</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="applications-table-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Application Details -->
+    <div id="application-modal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Application Details</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body-content">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
